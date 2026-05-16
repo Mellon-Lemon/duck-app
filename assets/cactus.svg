@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 112" role="img" aria-label="cactus">
+  <g stroke="#25351c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M48 101V24c0-12 18-12 18 0v16h7c8 0 13-5 13-13v-7c0-9 14-9 14 0v9c0 19-11 31-29 31h-5v41z" fill="#43c05a"/>
+    <path d="M48 51h-8c-16 0-26-11-26-29v-5c0-9 14-9 14 0v6c0 7 5 12 12 12h8z" fill="#46cf62"/>
+    <path d="M35 101h39" fill="none"/>
+    <path d="M55 28v62M23 16v28M82 16v33" stroke="#b7f7a0" stroke-width="3"/>
+  </g>
+</svg>

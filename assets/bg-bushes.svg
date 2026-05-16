@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 112" preserveAspectRatio="none" role="img" aria-label="struiken">
+  <path d="M0 88c24-32 61-35 86-8 19-41 80-44 105 0 27-37 86-38 112 1 28-39 91-37 116 3 28-47 100-42 122 3 30-27 74-25 99 3v22H0z" fill="#33aa4a"/>
+  <path d="M0 101c51-17 106-18 164-3 65-20 129-20 193 0 83-22 174-18 283 2v12H0z" fill="#218d3d"/>
+  <circle cx="70" cy="70" r="7" fill="#ffde59"/>
+  <circle cx="238" cy="76" r="6" fill="#ff7aa2"/>
+  <circle cx="482" cy="70" r="7" fill="#ffde59"/>
+</svg>

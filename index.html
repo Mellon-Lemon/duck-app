@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#67c9ff">
+  <meta name="description" content="Daan de Boze Eend: Muntenrace, een vrolijke mobile-first HTML5 endless runner.">
+  <title>Daan de Boze Eend: Muntenrace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app" class="game-shell" aria-label="Daan de Boze Eend: Muntenrace">
+    <canvas id="gameCanvas" aria-label="Speelveld van Daan de Boze Eend: Muntenrace">
+      Je browser ondersteunt geen canvas. Open deze game in een moderne browser.
+    </canvas>
+
+    <div id="screenFlash" class="screen-flash" aria-hidden="true"></div>
+
+    <section id="hud" class="hud hidden" aria-live="polite">
+      <div class="hud-row hud-row--top">
+        <div class="stat stat--score">
+          <span class="stat-label">Score</span>
+          <strong id="scoreText">0</strong>
+        </div>
+        <div class="hud-buttons">
+          <button id="muteBtn" class="icon-button" type="button" aria-label="Geluid dempen">
+            <img id="muteIcon" src="assets/icon-sound.svg" alt="">
+          </button>
+          <button id="pauseBtn" class="icon-button" type="button" aria-label="Pauzeren">
+            <img src="assets/icon-pause.svg" alt="">
+          </button>
+        </div>
+      </div>
+
+      <div class="hud-row hud-row--bottom">
+        <div class="pill"><span>Munten</span><strong id="coinText">0</strong></div>
+        <div class="pill"><span>Combo</span><strong id="comboText">x1</strong></div>
+        <div class="pill"><span>Snelheid</span><strong id="speedText">1.0x</strong></div>
+        <div id="heartHud" class="heart-hud" aria-label="Levens"></div>
+      </div>
+
+      <div id="powerHud" class="power-hud" aria-label="Actieve powerups"></div>
+    </section>
+
+    <section id="loadingScreen" class="overlay">
+      <div class="panel panel--compact">
+        <h1>Daan de Boze Eend: Muntenrace</h1>
+        <p>Spel laden...</p>
+      </div>
+    </section>
+
+    <section id="startScreen" class="overlay hidden" aria-labelledby="startTitle">
+      <div class="panel start-panel">
+        <div class="title-group">
+          <p class="eyebrow">HTML5 arcade</p>
+          <h1 id="startTitle">Daan de Boze Eend: Muntenrace</h1>
+          <p class="subtitle">Spring, verzamel munten en ontwijk chaos!</p>
+        </div>
+
+        <div class="start-preview" aria-hidden="true">
+          <img class="preview-duck" src="assets/player-duck-angry.svg" alt="">
+          <img class="preview-coin preview-coin--one" src="assets/coin.svg" alt="">
+          <img class="preview-coin preview-coin--two" src="assets/coin.svg" alt="">
+          <img class="preview-coin preview-coin--three" src="assets/coin.svg" alt="">
+        </div>
+
+        <p class="helper-text">Tik om te springen. Verzamel munten. Ontwijk obstakels.</p>
+
+        <div class="records" aria-label="Records">
+          <div><span>Highscore</span><strong id="startHighscore">0</strong></div>
+          <div><span>Beste munten</span><strong id="startBestCoins">0</strong></div>
+        </div>
+
+        <div class="skin-row" aria-label="Skin kiezen">
+          <span>Skin</span>
+          <button id="skinClassic" class="skin-button active" type="button" data-skin="classic" aria-label="Classic Daan kiezen">Classic</button>
+          <button id="skinScarf" class="skin-button" type="button" data-skin="scarf" aria-label="Rode Sjaal Daan kiezen">Sjaal</button>
+          <button id="skinNight" class="skin-button" type="button" data-skin="night" aria-label="Nacht Daan kiezen">Nacht</button>
+        </div>
+
+        <div id="startAchievements" class="achievement-list" aria-label="Vrijgespeelde achievements"></div>
+
+        <div class="button-row">
+          <button id="startBtn" class="primary-button" type="button">START</button>
+          <button id="startMuteBtn" class="icon-button icon-button--large" type="button" aria-label="Geluid dempen">
+            <img id="startMuteIcon" src="assets/icon-sound.svg" alt="">
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="countdownScreen" class="overlay overlay--clear hidden" aria-live="assertive">
+      <div id="countdownText" class="countdown-text">3</div>
+    </section>
+
+    <section id="pauseScreen" class="overlay hidden" aria-labelledby="pauseTitle">
+      <div class="panel panel--compact">
+        <h2 id="pauseTitle">Gepauzeerd</h2>
+        <div class="stack">
+          <button id="resumeBtn" class="primary-button" type="button">Verder spelen</button>
+          <button id="pauseRestartBtn" class="secondary-button" type="button">Opnieuw</button>
+          <button id="pauseMuteBtn" class="secondary-button" type="button">Geluid</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="gameOverScreen" class="overlay hidden" aria-labelledby="gameOverTitle">
+      <div class="panel gameover-panel">
+        <img class="gameover-duck" src="assets/player-duck-hit.svg" alt="">
+        <p class="eyebrow">KWAACHTIG GOED GEDAAN!</p>
+        <h2 id="gameOverTitle">DAAN IS WOEST!</h2>
+        <p id="newHighscoreText" class="new-highscore hidden">Nieuwe highscore!</p>
+        <div class="records records--gameover">
+          <div><span>Eindscore</span><strong id="finalScore">0</strong></div>
+          <div><span>Munten</span><strong id="finalCoins">0</strong></div>
+          <div><span>Beste score</span><strong id="bestScore">0</strong></div>
+        </div>
+        <div id="gameOverAchievements" class="achievement-list" aria-label="Achievements deze run"></div>
+        <div class="button-row button-row--wrap">
+          <button id="restartBtn" class="primary-button" type="button">Opnieuw</button>
+          <button id="backStartBtn" class="secondary-button" type="button">Terug naar start</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="toastRoot" class="toast-root" aria-live="polite"></div>
+  </main>
+
+  <script src="game.js" defer></script>
+</body>
+</html>

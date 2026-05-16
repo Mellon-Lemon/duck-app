@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="magneet">
+  <path d="M25 15h18v38c0 13 10 23 23 23s23-10 23-23V15h18v38c0 23-18 41-41 41S25 76 25 53z" transform="translate(-18 0)" fill="#ef4444" stroke="#2b1a1a" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M7 15h18v18H7zM71 15h18v18H71z" fill="#e5f4ff" stroke="#2b1a1a" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M33 18h30" stroke="#ffb4b4" stroke-width="5" stroke-linecap="round"/>
+</svg>
